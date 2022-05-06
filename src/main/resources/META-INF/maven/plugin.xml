@@ -3,9 +3,9 @@
 <plugin>
   <name>OpenAPI2Asciidoc Maven Plugin</name>
   <description>OpenAPI2Asciidoc Maven Plugin</description>
-  <groupId>com.logate.openapi2asciidoc</groupId>
+  <groupId>com.github.micobarac</groupId>
   <artifactId>openapi2asciidoc-maven-plugin</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>v1.0.2</version>
   <goalPrefix>openapi2asciidoc</goalPrefix>
   <isolatedRealm>false</isolatedRealm>
   <inheritedByDefault>true</inheritedByDefault>
