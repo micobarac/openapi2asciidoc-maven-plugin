@@ -54,7 +54,7 @@ public abstract class Schema2MarkupConfigBuilder<T extends Schema2MarkupConfigBu
             .natural()
             .onResultOf(Parameter::getName);
 
-    static final String PROPERTIES_DEFAULT = "io/github/swagger2markup/config/default.properties";
+    static final String PROPERTIES_DEFAULT = "com/logate/openapi2asciidoc/config/default.properties";
     protected C config;
 
     //reference to self as the subclass type

@@ -67,6 +67,6 @@ public class OpenAPILabels extends Labels {
     public static final String TABLE_TITLE_SERVER_VARIABLES = "table_title_server_variables";
 
     public OpenAPILabels(OpenSchema2MarkupConfig config) {
-        super(ResourceBundle.getBundle("io/github/swagger2markup/lang/labels", config.getLanguage().toLocale()));
+        super(ResourceBundle.getBundle("com/logate/openapi2asciidoc/lang/labels", config.getLanguage().toLocale()));
     }
 }

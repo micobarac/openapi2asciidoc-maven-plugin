@@ -101,6 +101,6 @@ public class SwaggerLabels extends Labels {
     public static final String UNKNOWN = "unknown";
 
     public SwaggerLabels(Swagger2MarkupConfig config) {
-        super(ResourceBundle.getBundle("io/github/swagger2markup/lang/labels", config.getLanguage().toLocale()));
+        super(ResourceBundle.getBundle("com/logate/openapi2asciidoc/lang/labels", config.getLanguage().toLocale()));
     }
 }
