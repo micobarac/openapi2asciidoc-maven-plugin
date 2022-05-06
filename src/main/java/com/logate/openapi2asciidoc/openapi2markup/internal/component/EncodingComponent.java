@@ -31,6 +31,7 @@ import java.util.Map;
 
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.LABEL_EXAMPLES;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.italicUnconstrained;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class EncodingComponent extends MarkupComponent<StructuralNode, EncodingComponent.Parameters, StructuralNode> {
 
@@ -65,17 +66,17 @@ public class EncodingComponent extends MarkupComponent<StructuralNode, EncodingC
             StringBuilder sb = new StringBuilder();
             String contentType = encoding.getContentType();
             if(StringUtils.isNotBlank(contentType)){
-                sb.append("Content-Type:").append(contentType).append(Schema2MarkupProperties.LINE_SEPARATOR);
+                sb.append("Content-Type:").append(contentType).append(LINE_SEPARATOR);
             }
             if(encoding.getAllowReserved()){
-                sb.append(italicUnconstrained("Allow Reserved").toLowerCase()).append(Schema2MarkupProperties.LINE_SEPARATOR);
+                sb.append(italicUnconstrained("Allow Reserved").toLowerCase()).append(LINE_SEPARATOR);
             }
             if(encoding.getExplode()){
-                sb.append(italicUnconstrained("Explode").toLowerCase()).append(Schema2MarkupProperties.LINE_SEPARATOR);
+                sb.append(italicUnconstrained("Explode").toLowerCase()).append(LINE_SEPARATOR);
             }
             Encoding.StyleEnum style = encoding.getStyle();
             if(style != null){
-                sb.append("style").append(style).append(Schema2MarkupProperties.LINE_SEPARATOR);
+                sb.append("style").append(style).append(LINE_SEPARATOR);
             }
             encodingBlock.setSource(sb.toString());
             tagDesc.append(encodingBlock);

@@ -13,6 +13,8 @@ import org.asciidoctor.ast.Table;
 
 import java.util.List;
 
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
+
 public class OpenApiHelpers {
 
     public static void appendDescription(StructuralNode node, String description) {
@@ -107,7 +109,7 @@ public class OpenApiHelpers {
     private static String generateRefLink(String ref) {
         if (StringUtils.isNotBlank(ref)) {
             String anchor = ref.toLowerCase().replaceFirst("#", "").replaceAll("/", "_");
-            return "<<" + anchor + ">>" + Schema2MarkupProperties.LINE_SEPARATOR;
+            return "<<" + anchor + ">>" + LINE_SEPARATOR;
         }
         return "";
     }

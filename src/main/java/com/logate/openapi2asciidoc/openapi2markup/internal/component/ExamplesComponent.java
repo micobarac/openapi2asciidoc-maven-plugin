@@ -32,6 +32,7 @@ import java.util.Map;
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.LABEL_EXAMPLES;
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.LABEL_EXTERNAL_VALUE;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.appendDescription;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class ExamplesComponent extends MarkupComponent<StructuralNode, ExamplesComponent.Parameters, StructuralNode> {
 
@@ -92,7 +93,7 @@ public class ExamplesComponent extends MarkupComponent<StructuralNode, ExamplesC
                 alt = ref.substring(ref.lastIndexOf('/') + 1);
             }
             String anchor = ref.replaceFirst("#", "").replaceAll("/", "_");
-            source += "<<" + anchor + "," + alt + ">>" + Schema2MarkupProperties.LINE_SEPARATOR;
+            source += "<<" + anchor + "," + alt + ">>" + LINE_SEPARATOR;
         }
         return source;
     }

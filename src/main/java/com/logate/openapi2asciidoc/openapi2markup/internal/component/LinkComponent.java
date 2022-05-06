@@ -28,6 +28,7 @@ import java.util.Map;
 
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.*;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.italicUnconstrained;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class LinkComponent extends MarkupComponent<StructuralNode, LinkComponent.Parameters, StructuralNode> {
 
@@ -54,16 +55,16 @@ public class LinkComponent extends MarkupComponent<StructuralNode, LinkComponent
         } else {
             StringBuilder sb = new StringBuilder();
             links.forEach((name, link) -> {
-                sb.append(name).append(" +").append(Schema2MarkupProperties.LINE_SEPARATOR);
+                sb.append(name).append(" +").append(LINE_SEPARATOR);
                 sb.append(italicUnconstrained(labels.getLabel(LABEL_OPERATION))).append(' ')
-                        .append(italicUnconstrained(link.getOperationId())).append(" +").append(Schema2MarkupProperties.LINE_SEPARATOR);
+                        .append(italicUnconstrained(link.getOperationId())).append(" +").append(LINE_SEPARATOR);
                 Map<String, String> linkParameters = link.getParameters();
                 if (null != linkParameters && !linkParameters.isEmpty()) {
-                    sb.append(italicUnconstrained(labels.getLabel(LABEL_PARAMETERS))).append(" {").append(" +").append(Schema2MarkupProperties.LINE_SEPARATOR);
+                    sb.append(italicUnconstrained(labels.getLabel(LABEL_PARAMETERS))).append(" {").append(" +").append(LINE_SEPARATOR);
                     linkParameters.forEach((param, value) ->
-                            sb.append('"').append(param).append("\": \"").append(value).append('"').append(" +").append(Schema2MarkupProperties.LINE_SEPARATOR)
+                            sb.append('"').append(param).append("\": \"").append(value).append('"').append(" +").append(LINE_SEPARATOR)
                     );
-                    sb.append('}').append(" +").append(Schema2MarkupProperties.LINE_SEPARATOR);
+                    sb.append('}').append(" +").append(LINE_SEPARATOR);
                 }
             });
             linkParagraph.setSource(sb.toString());

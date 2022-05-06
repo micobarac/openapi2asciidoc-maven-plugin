@@ -33,6 +33,7 @@ import java.util.stream.Stream;
 
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.*;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.boldUnconstrained;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class SchemaComponent extends MarkupComponent<StructuralNode, SchemaComponent.Parameters, StructuralNode> {
 
@@ -92,7 +93,7 @@ public class SchemaComponent extends MarkupComponent<StructuralNode, SchemaCompo
                 .map(e -> boldUnconstrained(e.getKey()) + ": " + e.getValue());
 
         ParagraphBlockImpl paragraphBlock = new ParagraphBlockImpl(schemaDocument);
-        String source = Stream.concat(schemaBooleanStream, schemaValueStream).collect(Collectors.joining(" +" + Schema2MarkupProperties.LINE_SEPARATOR));
+        String source = Stream.concat(schemaBooleanStream, schemaValueStream).collect(Collectors.joining(" +" + LINE_SEPARATOR));
         paragraphBlock.setSource(source);
 
         schemaDocument.append(paragraphBlock);

@@ -29,6 +29,7 @@ import java.util.Map;
 
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.*;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.*;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class PropertiesTableComponent extends MarkupComponent<StructuralNode, PropertiesTableComponent.Parameters, StructuralNode> {
 
@@ -66,7 +67,7 @@ public class PropertiesTableComponent extends MarkupComponent<StructuralNode, Pr
                 labels.getLabel(TABLE_HEADER_SCHEMA));
 
         properties.forEach((name, schema) -> propertiesTable.addRow(
-                    generateInnerDoc(propertiesTable, name + Schema2MarkupProperties.LINE_SEPARATOR + requiredIndicator(finalSchemaRequired.contains(name),
+                    generateInnerDoc(propertiesTable, name + LINE_SEPARATOR + requiredIndicator(finalSchemaRequired.contains(name),
                             labels.getLabel(LABEL_REQUIRED), labels.getLabel(LABEL_OPTIONAL))),
                 schemaComponent.apply(propertiesTable, schema),
                 generateInnerDoc(propertiesTable, getSchemaTypeAsString(schema))

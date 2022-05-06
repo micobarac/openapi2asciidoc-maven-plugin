@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 
 import static com.logate.openapi2asciidoc.openapi2markup.config.OpenAPILabels.*;
 import static com.logate.openapi2asciidoc.openapi2markup.internal.helper.OpenApiHelpers.*;
+import static com.logate.openapi2asciidoc.swagger2markup.adoc.converter.internal.Delimiters.LINE_SEPARATOR;
 
 public class ParametersComponent extends MarkupComponent<StructuralNode, ParametersComponent.Parameters, StructuralNode> {
 
@@ -87,7 +88,7 @@ public class ParametersComponent extends MarkupComponent<StructuralNode, Paramet
     }
 
     private Document getParameterNameDocument(Table table, Parameter parameter) {
-        String documentContent = boldUnconstrained(parameter.getName()) + " +" + Schema2MarkupProperties.LINE_SEPARATOR + requiredIndicator(parameter.getRequired(),
+        String documentContent = boldUnconstrained(parameter.getName()) + " +" + LINE_SEPARATOR + requiredIndicator(parameter.getRequired(),
                 labels.getLabel(LABEL_REQUIRED), labels.getLabel(LABEL_OPTIONAL));
         return generateInnerDoc(table, documentContent);
     }

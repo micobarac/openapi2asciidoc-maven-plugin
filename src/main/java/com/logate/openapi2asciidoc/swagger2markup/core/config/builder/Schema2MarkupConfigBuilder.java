@@ -38,6 +38,8 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import static com.logate.openapi2asciidoc.swagger2markup.core.Schema2MarkupProperties.*;
+
 public abstract class Schema2MarkupConfigBuilder<T extends Schema2MarkupConfigBuilder, C extends Schema2MarkupConfigBuilder.DefaultSchema2MarkupConfig> {
 
     public static final Ordering<PathOperation> OPERATION_METHOD_NATURAL_ORDERING = Ordering
@@ -67,62 +69,62 @@ public abstract class Schema2MarkupConfigBuilder<T extends Schema2MarkupConfigBu
         this.self = selfClass.cast(this);
         this.config = config;
 
-        config.listDelimiterEnabled = schema2MarkupProperties.getBoolean(Schema2MarkupProperties.LIST_DELIMITER_ENABLED, false);
-        config.listDelimiter = schema2MarkupProperties.getString(Schema2MarkupProperties.LIST_DELIMITER, ",").charAt(0);
+        config.listDelimiterEnabled = schema2MarkupProperties.getBoolean(LIST_DELIMITER_ENABLED, false);
+        config.listDelimiter = schema2MarkupProperties.getString(LIST_DELIMITER, ",").charAt(0);
 
         if (config.listDelimiterEnabled && configuration instanceof AbstractConfiguration) {
             ((AbstractConfiguration) configuration).setListDelimiterHandler(new DefaultListDelimiterHandler(config.listDelimiter));
         }
 
-        config.requestExamplesFormat = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.REQUEST_EXAMPLES_FORMAT);
-        config.requestExamplesSourceFormat = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.REQUEST_EXAMPLES_SOURCE_FORMAT);
-        config.requestExamplesHost = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.REQUEST_EXAMPLES_HOST);
-        config.requestExamplesSchema = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.REQUEST_EXAMPLES_SCHEMA);
-        config.requestExamplesHideBasePath = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.REQUEST_EXAMPLES_HIDE_BASE_PATH);
-        config.requestExamplesQueryArrayStyle = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.REQUEST_EXAMPLES_QUERY_ARRAY_STYLE);
-        config.requestExamplesIncludeAllQueryParams = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.REQUEST_EXAMPLES_INCLUDE_ALL_QUERY_PARAMS);
-        config.markupLanguage = schema2MarkupProperties.getRequiredMarkupLanguage(Schema2MarkupProperties.MARKUP_LANGUAGE);
-        config.schemaMarkupLanguage = schema2MarkupProperties.getRequiredMarkupLanguage(Schema2MarkupProperties.SWAGGER_MARKUP_LANGUAGE);
-        config.generatedExamplesEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.GENERATED_EXAMPLES_ENABLED);
-        config.hostnameEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.HOSTNAME_ENABLED);
-        config.basePathPrefixEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.BASE_PATH_PREFIX_ENABLED);
-        config.separatedDefinitionsEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.SEPARATED_DEFINITIONS_ENABLED);
-        config.separatedOperationsEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.SEPARATED_OPERATIONS_ENABLED);
-        config.pathsGroupedBy = schema2MarkupProperties.getGroupBy(Schema2MarkupProperties.PATHS_GROUPED_BY);
-        config.language = schema2MarkupProperties.getLanguage(Schema2MarkupProperties.OUTPUT_LANGUAGE);
-        config.inlineSchemaEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.INLINE_SCHEMA_ENABLED);
-        config.interDocumentCrossReferencesEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.INTER_DOCUMENT_CROSS_REFERENCES_ENABLED);
-        config.interDocumentCrossReferencesPrefix = schema2MarkupProperties.getString(Schema2MarkupProperties.INTER_DOCUMENT_CROSS_REFERENCES_PREFIX, null);
-        config.flatBodyEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.FLAT_BODY_ENABLED);
-        config.pathSecuritySectionEnabled = schema2MarkupProperties.getRequiredBoolean(Schema2MarkupProperties.PATH_SECURITY_SECTION_ENABLED);
-        config.anchorPrefix = schema2MarkupProperties.getString(Schema2MarkupProperties.ANCHOR_PREFIX, null);
-        config.overviewDocument = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.OVERVIEW_DOCUMENT);
-        config.pathsDocument = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.PATHS_DOCUMENT);
-        config.definitionsDocument = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.DEFINITIONS_DOCUMENT);
-        config.securityDocument = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.SECURITY_DOCUMENT);
-        config.separatedOperationsFolder = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.SEPARATED_OPERATIONS_FOLDER);
-        config.separatedDefinitionsFolder = schema2MarkupProperties.getRequiredString(Schema2MarkupProperties.SEPARATED_DEFINITIONS_FOLDER);
-        config.tagOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.TAG_ORDER_BY);
-        config.operationOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.OPERATION_ORDER_BY);
-        config.definitionOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.DEFINITION_ORDER_BY);
-        config.parameterOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.PARAMETER_ORDER_BY);
-        config.propertyOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.PROPERTY_ORDER_BY);
-        config.responseOrderBy = schema2MarkupProperties.getOrderBy(Schema2MarkupProperties.RESPONSE_ORDER_BY);
-        Optional<String> lineSeparator = schema2MarkupProperties.getString(Schema2MarkupProperties.LINE_SEPARATOR);
+        config.requestExamplesFormat = schema2MarkupProperties.getRequiredString(REQUEST_EXAMPLES_FORMAT);
+        config.requestExamplesSourceFormat = schema2MarkupProperties.getRequiredString(REQUEST_EXAMPLES_SOURCE_FORMAT);
+        config.requestExamplesHost = schema2MarkupProperties.getRequiredString(REQUEST_EXAMPLES_HOST);
+        config.requestExamplesSchema = schema2MarkupProperties.getRequiredString(REQUEST_EXAMPLES_SCHEMA);
+        config.requestExamplesHideBasePath = schema2MarkupProperties.getRequiredBoolean(REQUEST_EXAMPLES_HIDE_BASE_PATH);
+        config.requestExamplesQueryArrayStyle = schema2MarkupProperties.getRequiredString(REQUEST_EXAMPLES_QUERY_ARRAY_STYLE);
+        config.requestExamplesIncludeAllQueryParams = schema2MarkupProperties.getRequiredBoolean(REQUEST_EXAMPLES_INCLUDE_ALL_QUERY_PARAMS);
+        config.markupLanguage = schema2MarkupProperties.getRequiredMarkupLanguage(MARKUP_LANGUAGE);
+        config.schemaMarkupLanguage = schema2MarkupProperties.getRequiredMarkupLanguage(SWAGGER_MARKUP_LANGUAGE);
+        config.generatedExamplesEnabled = schema2MarkupProperties.getRequiredBoolean(GENERATED_EXAMPLES_ENABLED);
+        config.hostnameEnabled = schema2MarkupProperties.getRequiredBoolean(HOSTNAME_ENABLED);
+        config.basePathPrefixEnabled = schema2MarkupProperties.getRequiredBoolean(BASE_PATH_PREFIX_ENABLED);
+        config.separatedDefinitionsEnabled = schema2MarkupProperties.getRequiredBoolean(SEPARATED_DEFINITIONS_ENABLED);
+        config.separatedOperationsEnabled = schema2MarkupProperties.getRequiredBoolean(SEPARATED_OPERATIONS_ENABLED);
+        config.pathsGroupedBy = schema2MarkupProperties.getGroupBy(PATHS_GROUPED_BY);
+        config.language = schema2MarkupProperties.getLanguage(OUTPUT_LANGUAGE);
+        config.inlineSchemaEnabled = schema2MarkupProperties.getRequiredBoolean(INLINE_SCHEMA_ENABLED);
+        config.interDocumentCrossReferencesEnabled = schema2MarkupProperties.getRequiredBoolean(INTER_DOCUMENT_CROSS_REFERENCES_ENABLED);
+        config.interDocumentCrossReferencesPrefix = schema2MarkupProperties.getString(INTER_DOCUMENT_CROSS_REFERENCES_PREFIX, null);
+        config.flatBodyEnabled = schema2MarkupProperties.getRequiredBoolean(FLAT_BODY_ENABLED);
+        config.pathSecuritySectionEnabled = schema2MarkupProperties.getRequiredBoolean(PATH_SECURITY_SECTION_ENABLED);
+        config.anchorPrefix = schema2MarkupProperties.getString(ANCHOR_PREFIX, null);
+        config.overviewDocument = schema2MarkupProperties.getRequiredString(OVERVIEW_DOCUMENT);
+        config.pathsDocument = schema2MarkupProperties.getRequiredString(PATHS_DOCUMENT);
+        config.definitionsDocument = schema2MarkupProperties.getRequiredString(DEFINITIONS_DOCUMENT);
+        config.securityDocument = schema2MarkupProperties.getRequiredString(SECURITY_DOCUMENT);
+        config.separatedOperationsFolder = schema2MarkupProperties.getRequiredString(SEPARATED_OPERATIONS_FOLDER);
+        config.separatedDefinitionsFolder = schema2MarkupProperties.getRequiredString(SEPARATED_DEFINITIONS_FOLDER);
+        config.tagOrderBy = schema2MarkupProperties.getOrderBy(TAG_ORDER_BY);
+        config.operationOrderBy = schema2MarkupProperties.getOrderBy(OPERATION_ORDER_BY);
+        config.definitionOrderBy = schema2MarkupProperties.getOrderBy(DEFINITION_ORDER_BY);
+        config.parameterOrderBy = schema2MarkupProperties.getOrderBy(PARAMETER_ORDER_BY);
+        config.propertyOrderBy = schema2MarkupProperties.getOrderBy(PROPERTY_ORDER_BY);
+        config.responseOrderBy = schema2MarkupProperties.getOrderBy(RESPONSE_ORDER_BY);
+        Optional<String> lineSeparator = schema2MarkupProperties.getString(LINE_SEPARATOR);
         if (lineSeparator.isPresent() && StringUtils.isNoneBlank(lineSeparator.get())) {
             config.lineSeparator = LineSeparator.valueOf(lineSeparator.get());
         }
 
-        config.pageBreakLocations = schema2MarkupProperties.getPageBreakLocations(Schema2MarkupProperties.PAGE_BREAK_LOCATIONS);
+        config.pageBreakLocations = schema2MarkupProperties.getPageBreakLocations(PAGE_BREAK_LOCATIONS);
 
-        Optional<Pattern> headerPattern = schema2MarkupProperties.getHeaderPattern(Schema2MarkupProperties.HEADER_REGEX);
+        Optional<Pattern> headerPattern = schema2MarkupProperties.getHeaderPattern(HEADER_REGEX);
 
         config.headerPattern = headerPattern.orElse(null);
 
-        Configuration swagger2markupConfiguration = schema2MarkupProperties.getConfiguration().subset(Schema2MarkupProperties.PROPERTIES_PREFIX);
-        Configuration extensionsConfiguration = swagger2markupConfiguration.subset(Schema2MarkupProperties.EXTENSION_PREFIX);
+        Configuration swagger2markupConfiguration = schema2MarkupProperties.getConfiguration().subset(PROPERTIES_PREFIX);
+        Configuration extensionsConfiguration = swagger2markupConfiguration.subset(EXTENSION_PREFIX);
         config.extensionsProperties = new Schema2MarkupProperties(extensionsConfiguration);
-        config.asciidocPegdownTimeoutMillis = schema2MarkupProperties.getRequiredInt(Schema2MarkupProperties.ASCIIDOC_PEGDOWN_TIMEOUT);
+        config.asciidocPegdownTimeoutMillis = schema2MarkupProperties.getRequiredInt(ASCIIDOC_PEGDOWN_TIMEOUT);
     }
 
     /**
