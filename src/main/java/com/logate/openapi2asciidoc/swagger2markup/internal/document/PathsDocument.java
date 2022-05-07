@@ -114,6 +114,11 @@ public class PathsDocument extends MarkupComponent<PathsDocument.Parameters> {
      */
     private void buildsPathsSection(MarkupDocBuilder markupDocBuilder, Map<String, Path> paths) {
         List<SwaggerPathOperation> pathOperations = PathUtils.toPathOperationsList(paths, getHostname(), getBasePath(), config.getOperationOrdering());
+        logger.info("----- Path operations: -----");
+        logger.info(pathOperations.toString());
+        logger.info("----- Paths grouped by: -----");
+        logger.info(config.getPathsGroupedBy().toString());
+
         if (CollectionUtils.isNotEmpty(pathOperations)) {
             if (config.getPathsGroupedBy() == GroupBy.AS_IS) {
                 pathOperations.forEach(operation -> buildOperation(markupDocBuilder, operation, config));
@@ -122,7 +127,13 @@ public class PathsDocument extends MarkupComponent<PathsDocument.Parameters> {
                 // Group operations by tag
                 Multimap<String, SwaggerPathOperation> operationsGroupedByTag = TagUtils.groupOperationsByTag(pathOperations, config.getOperationOrdering());
 
+                logger.info("----- Operations grouped by tag: -----");
+                logger.info(operationsGroupedByTag.toString());
+
                 Map<String, Tag> tagsMap = TagUtils.toSortedMap(context.getSchema().getTags(), config.getTagOrdering());
+
+                logger.info("----- Tags map: -----");
+                logger.info(tagsMap.toString());
 
                 tagsMap.forEach((String tagName, Tag tag) -> {
                     markupDocBuilder.sectionTitleWithAnchorLevel2(WordUtils.capitalize(tagName), tagName + "_resource");
