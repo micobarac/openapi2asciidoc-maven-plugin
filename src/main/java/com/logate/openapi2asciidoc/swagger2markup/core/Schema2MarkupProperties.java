@@ -33,7 +33,7 @@ public class Schema2MarkupProperties {
     /**
      * Prefix for Swagger2Markup properties
      */
-    public static final String PROPERTIES_PREFIX = "swagger2markup";
+    public static final String PROPERTIES_PREFIX = "openapi2asciidoc";
 
     public static final String REQUEST_EXAMPLES_FORMAT = PROPERTIES_PREFIX + ".requestExamplesFormat";
     public static final String REQUEST_EXAMPLES_SOURCE_FORMAT = PROPERTIES_PREFIX + ".requestExamplesSourceFormat";
@@ -72,6 +72,7 @@ public class Schema2MarkupProperties {
     public static final String PARAMETER_ORDER_BY = PROPERTIES_PREFIX + ".parameterOrderBy";
     public static final String PROPERTY_ORDER_BY = PROPERTIES_PREFIX + ".propertyOrderBy";
     public static final String RESPONSE_ORDER_BY = PROPERTIES_PREFIX + ".responseOrderBy";
+
     public static final String LINE_SEPARATOR = PROPERTIES_PREFIX + ".lineSeparator";
     public static final String PAGE_BREAK_LOCATIONS = PROPERTIES_PREFIX + ".pageBreakLocations";
     public static final String ASCIIDOC_PEGDOWN_TIMEOUT = PROPERTIES_PREFIX + ".asciidoc.pegdown.timeoutMillis";
